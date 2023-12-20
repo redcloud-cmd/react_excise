@@ -36,7 +36,7 @@
 //     );
 //   }
 
-export default function Hello() {
+export default function Hello(props) {
     return (
       <>
         <div className="intro">
@@ -45,7 +45,7 @@ export default function Hello() {
         <p className="summary">
           你可以在这里了解我的想法。
           <br /><br />
-          <b>还有科学家们的{person}<i>照片</i>！</b>
+          <b>还有科学家们的{props.person}<i>照片</i>！</b>
         </p>
     </>
     );

@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
-import Hello from './Hello'
+// import Hello from './Hello';
+import Parent from './views/props/parent/index'
 function App() {
   // return (
   //   <div className="App">
@@ -26,7 +27,7 @@ function App() {
           //   alt="Aklilu Lemma"
           // />
 
-          <Hello person="person"></Hello>
+          <Parent></Parent>
   );
 }
 
