@@ -19,17 +19,25 @@ const doneList = [
   { title: "测试任务-1", status: "22-05-22 18:15" },
 ];
 
-const MyComponent = () => {
-  return <h1>wonderful</h1>;
-};
+const Banner = ()=>{
+  return (
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <h1>我的看板</h1>
+    </header>
+  )
+}
 
 const KanbanBoard = ({ children }) => {
   return <main className="kanban-board">{children}</main>;
 };
 
-const KanbanColumn = ({ children, className }) => {
+const KanbanColumn = ({ children, className ,title}) => {
   const combinedClassName = `kanban-column ${className}`;
-  return <section className={combinedClassName}>{children}</section>;
+  return (<section className={combinedClassName}>
+    <h2>{title}</h2>
+    <ul>{children}</ul>
+  </section>);
 };
 
 const KanbanCard = ({ title, status }) => {
@@ -86,39 +94,46 @@ function App() {
   };
   return (
     <div className="App">
-      <header className="App-header">
+      <Banner></Banner>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>我的看板</h1>
-      </header>
+      </header> */}
       <KanbanBoard>
-        <KanbanColumn className="column-todo">
-          <h2>
+        <KanbanColumn className="column-todo" title={
+          <>
+           待处理 <button onClick={handleAdd}    disabled={showAdd}>&#8853; 添加新卡片</button>
+          </>
+        
+        }>
+          {/* <h2>
             待处理
             <button onClick={handleAdd}>⊕添加新卡片</button>
-          </h2>
-          <ul>
+          </h2> */}
+          {/* <ul> */}
+          {showAdd && <KanbanNewCard onSubmit={handleSubmit}/>}
             {todoList.map((item, index) => {
               return <KanbanCard {...item} key={index}></KanbanCard>;
             })}
-          </ul>
+          {/* </ul> */}
         </KanbanColumn>
-        <KanbanColumn className="column-ongoing">
+        <KanbanColumn className="column-ongoing" title='进行中'>
           {/* <section className='kanban-column column-ongoing'> */}
-          <h2>进行中</h2>
-          <ul>
+          {/* <h2>进行中</h2>
+          <ul> */}
             {ongoingList.map((item) => {
               return <KanbanCard {...item}></KanbanCard>;
             })}
-          </ul>
+          {/* </ul> */}
         </KanbanColumn>
-        <KanbanColumn className="column-done">
+        <KanbanColumn className="column-done" title='已完成'>
           {/* <section className='kanban-column '> */}
-          <h2>已完成</h2>
-          <ul>
+          {/* <h2>已完成</h2>
+          <ul> */}
             {doneList.map((item) => {
               return <KanbanCard {...item}></KanbanCard>;
             })}
-          </ul>
+          {/* </ul> */}
         </KanbanColumn>
       </KanbanBoard>
     </div>
