@@ -72,3 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## props使用，数组map使用可实现循环渲染 
 ## react 看板练习
 ## 使用emotion库编写css-in-js 
+## 组件封装 父子组件 注意组件需要return
+## 增加显示卡片创建时间功能

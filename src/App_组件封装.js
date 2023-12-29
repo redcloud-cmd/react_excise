@@ -4,20 +4,19 @@ import logo from "./logo.svg";
 import "./App.css";
 import { css } from "@emotion/react";
 const todoList = [
-  { title: "开发任务-1", status: "2023-05-22 18:15" },
-  { title: "开发任务-1", status: "2023-12-29 13:41" },
-  { title: "开发任务-3", status: "2023-05-22 18:15" },
-  { title: "开发任务-5", status: "2020-05-22 18:15" },
-  { title: "测试任务-3", status: "2020-05-22 18:15" },
+  { title: "开发任务-1", status: "22-05-22 18:15" },
+  { title: "开发任务-3", status: "22-05-22 18:15" },
+  { title: "开发任务-5", status: "22-05-22 18:15" },
+  { title: "测试任务-3", status: "22-05-22 18:15" },
 ];
 const ongoingList = [
-  { title: "开发任务-4", status: "2022-05-22 18:15" },
-  { title: "开发任务-6", status: "2022-05-22 18:15" },
-  { title: "测试任务-2", status: "2022-05-22 18:15" },
+  { title: "开发任务-4", status: "22-05-22 18:15" },
+  { title: "开发任务-6", status: "22-05-22 18:15" },
+  { title: "测试任务-2", status: "22-05-22 18:15" },
 ];
 const doneList = [
-  { title: "开发任务-2", status: "2022-05-22 18:15" },
-  { title: "测试任务-1", status: "2022-05-22 18:15" },
+  { title: "开发任务-2", status: "22-05-22 18:15" },
+  { title: "测试任务-1", status: "22-05-22 18:15" },
 ];
 
 const Banner = () => {
@@ -52,7 +51,6 @@ const KanbanCard = ({ title, status }) => {
   useEffect(() => {
     const updateDisplayTime = () => {
       const timePassed = new Date() - new Date(status);
-      // console.log(timePassed,'',status,new Date())
       let relativeTime = "刚刚";
       if (MINUTE <= timePassed && timePassed < HOUR) {
         relativeTime = `${Math.ceil(timePassed / MINUTE)} 分钟前`;
@@ -72,7 +70,7 @@ const KanbanCard = ({ title, status }) => {
   return (
         <li className="kanban-card">
           <div className="card-title">{title}</div>
-          <div className="card-status">{displayTime}</div>
+          <div className="card-status">{displayTime}-{displayTime}</div>
         </li>
       );
 };
@@ -93,7 +91,7 @@ const KanbanNewCard = ({ onSubmit }) => {
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      // console.log(e, "hanseleKeyDowns");
+      console.log(e, "hanseleKeyDowns");
       onSubmit(title);
     }
   };
@@ -125,9 +123,8 @@ function App() {
     setShowAdd(true);
   };
   const handleSubmit = (title) => {
-    // console.log(title);
-    todoList.unshift({ title: title, status: new Date().toString() });
-    // console.log(new Date().toDateString(),new Date())
+    console.log(title);
+    todoList.unshift({ title: title, status: new Date().toDateString() });
     setShowAdd(false);
   };
   return (
