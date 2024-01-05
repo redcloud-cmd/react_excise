@@ -93,7 +93,6 @@ const KanbanNewCard = ({ onSubmit }) => {
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      // console.log(e, "hanseleKeyDowns");
       onSubmit(title);
     }
   };
@@ -127,7 +126,6 @@ function App() {
   const handleSubmit = (title) => {
     // console.log(title);
     todoList.unshift({ title: title, status: new Date().toString() });
-    // console.log(new Date().toDateString(),new Date())
     setShowAdd(false);
   };
   return (
